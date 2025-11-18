@@ -6,21 +6,24 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import LogoutButton from "@/components/logout-button";
 
+type AppUser = {
+  name: string;
+  email: string;
+  photo: string;
+};
+
 export default function Dashboard() {
   const router = useRouter();
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // loading agar tidak flicker
+  const [user, setUser] = useState<AppUser | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Cek status login Firebase Auth
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       if (!firebaseUser) {
-        // Tidak login → tendang ke halaman login
         router.replace("/login");
         return;
       }
 
-      // Kalau login, ambil data dari localStorage (UI)
       const savedUser = localStorage.getItem("user");
       if (savedUser) {
         setUser(JSON.parse(savedUser));
@@ -32,7 +35,6 @@ export default function Dashboard() {
     return () => unsubscribe();
   }, [router]);
 
-  // Loading saat cek auth
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -41,7 +43,6 @@ export default function Dashboard() {
     );
   }
 
-  // Safety: kalau user null (jarang terjadi)
   if (!user) {
     return (
       <div className="flex items-center justify-center h-screen">
