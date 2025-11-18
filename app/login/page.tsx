@@ -1,9 +1,8 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { GoogleLoginButton } from '@/components/login-google-button';
-import { useTheme } from '@/components/use-theme';
+import Link from "next/link";
+import { GoogleLoginButton } from "@/components/login-google-button";
+import { useTheme } from "@/components/use-theme";
 
 export default function LoginPage() {
   const { toggleTheme, isDark } = useTheme();
@@ -13,7 +12,10 @@ export default function LoginPage() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/40 dark:bg-slate-950/40 backdrop-blur-xl border-b border-gray-200 dark:border-slate-800/50 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <Link
+            href="/"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          >
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-lg">
               ✨
             </div>
@@ -26,7 +28,7 @@ export default function LoginPage() {
             className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
             aria-label="Toggle dark mode"
           >
-            {isDark ? '☀️' : '🌙'}
+            {isDark ? "☀️" : "🌙"}
           </button>
         </div>
       </nav>
@@ -99,8 +101,11 @@ export default function LoginPage() {
             {/* Footer */}
             <div className="text-center">
               <p className="text-gray-600 dark:text-gray-400 text-sm">
-                Don't have an account?{' '}
-                <Link href="/signup" className="font-semibold text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 transition-colors">
+                Don't have an account?{" "}
+                <Link
+                  href="/signup"
+                  className="font-semibold text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 transition-colors"
+                >
                   Sign up
                 </Link>
               </p>
@@ -109,7 +114,10 @@ export default function LoginPage() {
 
           {/* Back to home */}
           <div className="text-center mt-6">
-            <Link href="/" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+            <Link
+              href="/"
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
               ← Back to home
             </Link>
           </div>

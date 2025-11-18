@@ -8,8 +8,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'WebGen-AI - AI-Powered Web App Builder',
+  description: 'Generate web and mobile applications with AI. Build production-ready apps in minutes.',
   generator: 'v0.app',
   icons: {
     icon: [
